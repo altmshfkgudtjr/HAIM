@@ -77,14 +77,21 @@
 	<div id="H_main_loading" class="H_loading_container animated">
 		<div class="H_loading_brighting"></div>
 		<img src="../static/image/loading1.png" class="H_loading_content">
-		<div class="H_loading_voca H_sunflower">HAIM 준비 중..</div>
+		<div class="H_loading_voca H_loading_first_step_voca_kr H_sunflower">HAIM 준비 중..</div>
+		<div class="H_loading_voca H_loading_first_step_voca_eng display_none H_sunflower">Starting for Haim...</div>
 	</div>
+	<div id="H_first_step_loading" class="H_loading_container animated display_none">
+		<img src="../static/image/loading1.png" class="H_loading_content">
+		<div class="H_loading_voca H_loading_first_step_voca_kr H_sunflower">제작 중...</div>
+		<div class="H_loading_voca H_loading_first_step_voca_eng display_none H_sunflower">In creating...</div>
+	</div>
+	<!--
 	<div id="H_first_step_loading" class="H_loading_first_step_container animated display_none">
 		<svg viewBox="0 0 1000 1000" class="H_loading_first_step_content"></svg>
 		<div class="H_loading_first_step_voca H_loading_first_step_voca_kr">제작 중...</div>
 		<div class="H_loading_first_step_voca H_loading_first_step_voca_eng display_none">In creating...</div>
 	</div>
-
+	-->
 	<!-- Header -->
 	<div class="H_header">
 		<div class="H_info_button" onclick="moveToInfo()">
@@ -101,7 +108,7 @@
 		<div class="H_subtitle H_subtitle_kr noselect H_dokdo">한글 인공지능 A.I 서예가</div>
 		<div class="H_subtitle H_subtitle_eng noselect H_dokdo display_none">Hangul A.I Maker</div>
 		<div class="H_main_textarea_container">
-			<textarea id="H_main_textarea" class="H_main_textarea H_sunflower" maxlength="100" placeholder="나만의 한글을 써주세요!"></textarea>
+			<textarea id="H_main_textarea" class="H_main_textarea H_sunflower" maxlength="100" placeholder="나만의 한글을 써주세요!" cols=100 rows=10></textarea>
 			<img src="../static/image/munjin.png" class="H_main_textarea_fixed">
 		</div>
 		<div id="H_first_step_next" class="H_first_step_next" onclick="moveToSecond()">
@@ -115,7 +122,7 @@
 		</div>
 		<div class="H_subtitle H_subtitle_kr H_dokdo noselect">사용자 편집</div>
 		<div class="H_subtitle H_subtitle_eng H_dokdo noselect display_none">Edit Calligraphy</div>
-		<div id="H_second_step_image_container", class="H_second_step_image_container">
+		<div id="H_second_step_image_container" class="H_second_step_image_container">
 			<img src="../static/image/info_image1.png" class="H_second_step_image_content">
 		</div>
 		<!--선택버튼-->
@@ -131,40 +138,45 @@
 		</div>
 		<!--파라미터 조절-->
 		<div id="H_fontedit_container" class="H_slider_container">
-			<div id="bell" class="H_sunflower H_fontedit_button H_fontedit_button_selected" onclick="select_font($(this))">동글동글</div>
-			<div id="wind" class="H_sunflower H_fontedit_button" onclick="select_font($(this))">휘날림</div>
-			<div id="bidan" class="H_sunflower H_fontedit_button" onclick="select_font($(this))">누에고치</div>
+			<div id="bell" class="H_sunflower H_fontedit_button H_fontedit_button_selected" onclick="select_font($(this))" number="0">동글동글</div>
+			<div id="wind" class="H_sunflower H_fontedit_button" onclick="select_font($(this))" number="1">휘날림</div>
+			<div id="bidan" class="H_sunflower H_fontedit_button" onclick="select_font($(this))" number="2">누에고치</div>
 		</div>
 		<div id="H_letterattach_container" class="H_slider_container display_none">
 			<div class="slider_info_kr slider_info">글자 사이 간격</div>
-			<div class="slider_info_eng slider_info display_none">Letter-Spacing</div>
+			<div class="slider_info_eng slider_info display_none H_sunflower">Letter-Spacing</div>
 			<div class="slider_num H_dokdo">40</div>
 			<div class="slider_container">
-			  <input type="range" oninput="change_num($(this))" min="40" max="100" value="40">
+			  <input id="slider_letter_space" type="range" oninput="change_num($(this))" min="40" max="100" value="40" step="30">
 			</div>
 		</div>
 		<div id="H_definition_container" class="H_slider_container display_none">
 			<div class="slider_info_kr slider_info">선명도</div>
-			<div class="slider_info_eng slider_info display_none">Definition</div>
+			<div class="slider_info_eng slider_info H_sunflower display_none">Definition</div>
 			<div class="slider_num H_dokdo">30</div>
 			<div class="slider_container">
-			  <input type="range" oninput="change_num($(this))" min="0" max="100" value="30">
+			  <input id="slider_definition" type="range" oninput="change_num($(this))" min="30" max="100" value="30" step="35">
 			</div>
 		</div>
 		<div id="H_fontcolor_container" class="H_slider_container display_none">
-			<input class="jscolor" value="ECCEF5" style="position: relative; border: none; width: 100px; height: 58px; text-align: center; float: left; margin: 0 1.9px; transition: 0.4s;" onclick="select_color($(this))">
-			<div class="H_fontcolor_button" style="margin: 0 5px 5px 7px; background-color: #F78181;" onclick="select_color($(this))"></div>
-			<div class="H_fontcolor_button" style="margin-top: 0; background-color: #F79F81;" onclick="select_color($(this))"></div>
-			<div class="H_fontcolor_button" style="margin-top: 0; background-color: #F5D0A9" onclick="select_color($(this))"></div>
-			<div class="H_fontcolor_button" style="margin-top: 0; background-color: #F3E2A9" onclick="select_color($(this))"></div>
-			<div class="H_fontcolor_button" style="margin-top: 0; background-color: #E1F5A9" onclick="select_color($(this))"></div>
-			<div class="H_fontcolor_button" style="margin-top: 0; background-color: #A9F5D0" onclick="select_color($(this))"></div>
-			<div class="H_fontcolor_button" style="margin-top: 0; background-color: #A9E2F3" onclick="select_color($(this))"></div>
-			<div class="H_fontcolor_button" style="margin: 9px 5px 0 7px; background-color: #BCA9F5" onclick="select_color($(this))"></div>
-			<div class="H_fontcolor_button" style="margin: 9px 5px 0 5px; background-color: #D0A9F5" onclick="select_color($(this))"></div>
-			<div class="H_fontcolor_button" style="margin: 9px 5px 0 5px; background-color: #F5A9E1" onclick="select_color($(this))"></div>
-			<div class="H_fontcolor_button" style="margin: 9px 5px 0 5px; background-color: #F5A9D0" onclick="select_color($(this))"></div>
-			<div class="H_fontcolor_button" style="margin: 9px 5px 0 5px; background-color: #F6CED8" onclick="select_color($(this))"></div>
+			<div class="H_fontcolor_button" style="margin: 0 5px 5px 7px; background-color: #FA5858;" onclick="select_color($(this))"></div>
+			<div class="H_fontcolor_button" style="margin: 0 5px 5px 7px; background-color: #F79F81;" onclick="select_color($(this))"></div>
+			<div class="H_fontcolor_button" style="margin: 0 5px 5px 7px; background-color: #F7BE81;" onclick="select_color($(this))"></div>
+			<div class="H_fontcolor_button" style="margin-top: 0; background-color: #F5DA81;" onclick="select_color($(this))"></div>
+			<div class="H_fontcolor_button" style="margin-top: 0; background-color: #E1F5A9;" onclick="select_color($(this))"></div>
+			<div class="H_fontcolor_button" style="margin-top: 0; background-color: #A9F5BC;" onclick="select_color($(this))"></div>
+			<div class="H_fontcolor_button" style="margin: 0 5px 5px 7px; background-color: #A9F5F2;" onclick="select_color($(this))"></div>
+			<div class="H_fontcolor_button" style="margin-top: 0; background-color: #81BEF7;" onclick="select_color($(this))"></div>
+			<div class="H_fontcolor_button" style="margin-top: 0; background-color: #A9A9F5" onclick="select_color($(this))"></div>
+			<div class="H_fontcolor_button" style="margin-top: 0; background-color: #BCA9F5" onclick="select_color($(this))"></div>
+			<div class="H_fontcolor_button" style="margin: 9px 5px 0 7px; background-color: #E3CEF6" onclick="select_color($(this))"></div>
+			<div class="H_fontcolor_button" style="margin: 9px 5px 0 7px; background-color: #F6CEF5" onclick="select_color($(this))"></div>
+			<div class="H_fontcolor_button" style="margin: 9px 5px 0 7px; background-color: #F6CEE3" onclick="select_color($(this))"></div>
+			<div class="H_fontcolor_button" style="margin: 9px 5px 0 7px; background-color: #F7F2E0" onclick="select_color($(this))"></div>
+			<div class="H_fontcolor_button" style="margin: 9px 5px 0 5px; background-color: #ECF8E0" onclick="select_color($(this))"></div>
+			<div class="H_fontcolor_button" style="margin: 9px 5px 0 5px; background-color: #E0ECF8" onclick="select_color($(this))"></div>
+			<div class="H_fontcolor_button" style="margin: 9px 5px 0 5px; background-color: #CECEF6" onclick="select_color($(this))"></div>
+			<div class="H_fontcolor_button" style="margin: 9px 5px 0 5px; background-color: #F8E0F1" onclick="select_color($(this))"></div>
 			<div class="H_fontcolor_button" style="margin: 9px 5px 0 5px; background-color: #FFFFFF" onclick="select_color($(this))"></div>
 			<div class="H_fontcolor_button H_fontcolor_button_selected" style="margin: 9px 5px 0 5px; background-color: #000000" onclick="select_color($(this))"></div>
 		</div>
@@ -180,7 +192,7 @@
 		</div>
 		<div class="H_subtitle H_subtitle_kr H_dokdo noselect">배경 설정</div>
 		<div class="H_subtitle H_subtitle_eng H_dokdo noselect display_none">Select Background</div>
-		<div id="H_third_step_image_container" class="H_second_step_image_container" style="background-image: url('../static/image/bg_white.jpg')">
+		<div id="H_third_step_image_container" class="H_second_step_image_container" style="background-image: url('../static/image/bg_gray.jpg')">
 			<img id="H_target_image" src="../static/image/info_image1.png" class="H_second_step_image_content">
 		</div>
 		<div id="H_save_image" class="H_third_step_save" style="margin-top: 20px;" onclick="imagesave()">
@@ -195,7 +207,13 @@
 		<canvas id="H_save_image_canvas" style="position: relative; display: block; width: 360px; height: 640px;"></canvas>
 		-->
 	</div>
-	<div id="H_fourth_step" class="H_third_step animated display_none">
+
+	<div id="H_saving_modal" class="H_saving_modal H_dokdo" style="display: none">
+		<div class="H_subtitle_kr">작품 생성 완료</div>
+		<div class="H_subtitle_eng display_none">Writing Calligraphy Done</div>
+	</div>
+
+	<div id="H_fourth_step" class="H_fourth_step animated display_none">
 		<div class="H_background_form" style="background-image: url('../static/image/bg_white.jpg')" onerror="unready_image($(this))" onclick="change_bg($(this))"></div>
 		<div class="H_background_form" style="background-image: url('../static/image/bg_black.jpg')" onerror="unready_image($(this))" onclick="change_bg($(this))"></div>
 		<div class="H_background_form" style="background-image: url('../static/image/bg0.jpg')" onerror="unready_image($(this))" onclick="change_bg($(this))"></div>
@@ -215,10 +233,9 @@
 </body>
 <!-- Jquery JS -->
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-<!-- Loading JS -->
+<!-- Loading JS 
 <script src="../static/js/colorful_loading.js"></script>
-<!-- Color Picker JS -->
-<script src="../static/js/jscolor.js"></script>
+-->
 <!-- Custion JS -->
 <script src="../static/js/main.js"></script>
 </html>

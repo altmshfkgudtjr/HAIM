@@ -106,7 +106,7 @@ function moveToSecond(){
 				$('#H_second_step').removeClass("fadeInUp");
 			}, 900);
 		}, 900);
-	}, 5000);
+	}, 1500);
 }
 function moveToFirstPrev() {
 	$("#H_second_step").addClass("fadeOutDown");
@@ -142,7 +142,7 @@ function moveToThird() {
 				$('#H_third_step').removeClass("fadeInUp");
 			}, 900);
 		}, 900);
-	}, 5000);
+	}, 1500);
 }
 function moveToSecondPrev() {
 	$("#H_third_step").addClass("fadeOutDown");
@@ -173,6 +173,7 @@ function moveToFourth() {
 
 function change_num(tag) {
 	tag.parent().prev().text(tag.val())
+	calligraphy_preview()
 }
 function select_parameter(tag) {
 	$('.H_edit_button').removeClass("H_edit_button_selected");
@@ -184,11 +185,13 @@ function select_parameter(tag) {
 function select_font(tag) {
 	$('.H_fontedit_button').removeClass("H_fontedit_button_selected");
 	tag.toggleClass("H_fontedit_button_selected");
+	calligraphy_preview();
 }
 function select_color(tag) {
 	$('.jscolor').removeClass("H_fontcolor_button_selected");
 	$('.H_fontcolor_button').removeClass("H_fontcolor_button_selected");
 	tag.toggleClass("H_fontcolor_button_selected");
+	calligraphy_preview();
 }
 function unready_image(tag) {
 	tag.attr("src", "../static/image/noimage2.gif");
@@ -211,6 +214,11 @@ function change_bg(tag) {
 
 
 function imagesave() {
+	$("#H_saving_modal").slideToggle("slow");
+	setTimeout(function() {
+		$("#H_saving_modal").slideToggle("slow");
+	}, 2000);
+	/*
 	let img_src = $("#H_third_step_image_container").css("background-image").split('"')[1];
 	let target_src = $("#H_target_image").attr("src");
 	let canvas = document.querySelector("#H_save_image_canvas");
@@ -227,4 +235,38 @@ function imagesave() {
 	var dataURL = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
 	window.location.href=dataURL;
 	//window.open(dataURL.replace(/^data:image\/(png|jpg);base64,/, ""), "_blank");
+	*/
+}
+
+
+function calligraphy_preview() {
+	let string = "아름다운 한글";
+	let font = $(".H_fontedit_button_selected").attr("number");
+	let letter = $("#slider_letter_space").val();
+	let definition = $("#slider_definition").val();
+	let color = $(".H_fontcolor_button_selected").css("background-color");
+
+	if (letter < 70){
+		letter = 0;
+	} else if (letter > 70){
+		letter = 2;
+	} else {
+		letter = 1;
+	}
+
+	if (definition < 65) {
+		definition = 0;
+	} else if (definition > 65) {
+		definition = 2;
+	} else {
+		definition = 1;
+	}
+	
+	if (color == "rgb(0, 0, 0)") {
+		color = 1;
+	} else {
+		color = 0;
+	}
+	let output = string+'_'+String(font)+String(letter)+String(definition)+String(color)+".png";
+	console.log(output);
 }
