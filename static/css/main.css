@@ -1,0 +1,722 @@
+html {
+	background-image: url("../image/background_hanji.png");
+	background-repeat: no-repeat;
+	position: fixed;
+}
+html, body {
+	height: 100%;
+	margin: 0;
+}
+input:focus::-webkit-input-placeholder, textarea:focus::-webkit-input-placeholder { /* WebKit browsers */ color:transparent }
+input:focus:-moz-placeholder, textarea:focus:-moz-placeholder { /* Mozilla Firefox 4 to 18 */ color:transparent }
+input:focus::-moz-placeholder, textarea:focus::-moz-placeholder { /* Mozilla Firefox 19+ */ color:transparent }
+input:focus:-ms-input-placeholder, textarea:focus:-ms-input-placeholder { /* Internet Explorer 10+ */ color:transparent }
+svg {
+  height: 100vmin;
+  left: calc(50% - 50vmin);
+  position: absolute;
+  width: 100vmin;
+}
+.H_slider_container {
+	position: relative;
+	padding: 10px 10px;
+	height: 60px;
+	width: 340px;
+	margin-top: 10px;
+	border: none;
+	background-color: rgba(0,0,0,0.2);
+}
+.slider_container {
+	position: relative;
+	display: inline-block;
+	float: right;
+ 	width: 300px;
+ 	right: 5px;
+}
+.slider_num {
+	position: relative;
+	display: inline-block;
+	font-size: 30px;
+	top: -10px;
+}
+.slider_info {
+	position: relative;
+	width: 360px;
+	margin-bottom: 10px;
+	text-align: center;
+}
+
+input[type="range"] {
+  width: 300px;
+  background: transparent;
+}
+/*###################################*/
+/*###########Responsive Range########*/
+/*###################################*/
+/*##############Core Style###########*/
+
+input[type="range"] {
+  -webkit-appearance: none;
+  width: 100%;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+}
+
+input[type="range"]:focus {
+  outline: none;
+}
+
+input[type="range"]::-ms-track {
+  width: 100%;
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+/*#############Thumb##############*/
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 25px;
+  width: 25px;
+  background: #555;
+  cursor: pointer;
+  margin-top: -8px;
+  border-radius: 5px;
+}
+
+input[type="range"]::-moz-range-thumb {
+  height: 36px;
+  width: 36px;
+  background: #555;
+  cursor: pointer;
+}
+
+input[type="range"]::-ms-thumb {
+  height: 36px;
+  width: 36px;
+  background: #555;
+  cursor: pointer;
+}
+/*#############Track##############*/
+
+input[type="range"]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 8px;
+  cursor: pointer;
+  background: #ccc;
+}
+
+input[type="range"]:active::-webkit-slider-runnable-track {
+  background: #d6d6d6;
+}
+
+input[type="range"]::-moz-range-track {
+  width: 100%;
+  height: 8px;
+  cursor: pointer;
+  background: #ccc;
+}
+
+input[type="range"]::-ms-track {
+  width: 100%;
+  height: 8px;
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+
+input[type="range"]::-ms-fill-lower {
+  background: #ccc;
+}
+
+input[type="range"]:focus::-ms-fill-lower {
+  background: #ddd;
+}
+
+input[type="range"]::-ms-fill-upper {
+  background: #ccc;
+}
+
+input[type="range"]:focus::-ms-fill-upper {
+  background: #ddd;
+}
+
+
+
+
+/*폰트 클래스================================================================*/
+.H_dokdo { font-family: 'East Sea Dokdo', cursive !important}
+.H_sunflower { font-family: 'Sunflower', sans-serif }
+.H_belleza { font-family: 'Belleza', sans-serif }
+
+/*구성 클래스=================================================================*/
+.display_none {display: none !important}
+.display_block {display: block}
+.noselect {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.H_language_kr {
+	position: relative;
+	display: inline-block;
+	float: left;
+	width: 50%;
+	cursor: pointer;
+	transition: 0.4s;
+	-webkit-tap-highlight-color:transparent;
+}
+.H_language_eng {
+	position: relative;
+	display: inline-block;
+	float: right;
+	width: 50%;
+	cursor: pointer;
+	transition: 0.2s;
+	-webkit-tap-highlight-color:transparent;
+}
+.H_language_selected {
+	background-color:  rgba(0,0,0, 0.2);
+}
+.H_info_body_content_kr {
+	position: relative;
+	display: inline-block;
+	width: 290px;
+	float: right;
+}
+.H_info_body_content_eng {
+	position: relative;
+	display: inline-block;
+	width: 290px;
+	float: right;
+}
+
+/*로딩 페이지================================================================*/
+@keyframes spin {
+    0%  {transform: rotate(0deg);}
+    100% {transform: rotate(360deg);}
+}
+.H_loading_container {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0,0.6);
+	transition: 0.4s;
+	z-index: 3000;
+}
+.H_loading_brighting {
+	position: relative;
+	top: 50%;
+	transform: translate(-0.5px, -50%);
+	margin: 0px auto;
+	width: 85px;
+	height: 85px;
+	background: radial-gradient( white, rgba(0,0,0,0), rgba(0,0,0,0));
+}
+.H_loading_content {
+	position: absolute;
+	text-shadow: 0 0 5px #FFFFFF;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: auto;
+	margin-bottom: auto;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	width: 50px;
+	height: 50px;
+	animation: spin 10s infinite linear;
+}
+.H_loading_voca {
+	position: absolute;
+	margin-left: auto;
+	margin-right: auto;
+	top: 56%;
+	left: 0;
+	right: 0;
+	width: 85px;
+	height: 12px;
+	color: white;
+	font-size: 12px;
+	line-height: 12px;
+	text-align: center;
+}
+
+
+/*상단 버튼======================================================*/
+.H_header {
+	position: relative;
+	width: 100%;
+	height: 60px;
+	background: rgba(0,0,0,0);
+	z-index: 500;
+}
+.H_info_button {
+	position: relative;
+	display: inline-block;
+	margin: 20px 5px 0 5px;
+	width: 25px;
+	height: 25px;
+	color: #1D1E23;
+	cursor: pointer;
+	outline: none;
+}
+.H_info_button {
+	-webkit-tap-highlight-color:transparent;
+}
+.H_info_button:active {
+	color: #616264;
+}
+.H_info_button_icon {
+	font-size: 25px;
+}
+.H_chage_language{
+	position: relative;
+	margin-top: 23px;
+	margin-right: 5px;
+	width: 60px;
+	height: 20px;
+	line-height: 20px;
+	float: right;
+	border: 0px solid #1D1E23;
+	border-radius: 5px;
+	text-align: center;
+	font-size: 12px;
+}
+
+
+/*메인 페이지=============================================================*/
+.H_first_step {
+	position: absolute;
+	width: 360px;
+	height: 540px;
+}
+.H_second_step {
+	position: absolute;
+	width: 360px;
+	height: 540px;
+}
+.H_third_step {
+	position: absolute;
+	width: 360px;
+	height: 640px;
+}
+.H_fourth_step {
+	position: absolute;
+	width: 360px;
+	height: 550px;
+	overflow-y: scroll;
+	-webkit-overflow-scrolling:touch;
+}
+.H_title {
+	position: relative;
+	margin-bottom: 20px;
+	width: 100%;
+	height: 60px;
+	line-height: 60px;
+	font-size: 60px;
+	text-align: center;
+	color: #1D1E23;
+}
+.H_subtitle {
+	position: relative;
+	width: 100%;
+	height: 22px;
+	line-height: 22px;
+	font-size: 22px;
+	text-align: center;
+	font-weight: lighter;
+	color: #1D1E23;
+}
+.H_main_textarea_container {
+	position: relative;
+	width: 100%;
+	height: 300px;
+	z-index: 300;
+	margin: 40px 0 30px 0;
+}
+.H_main_textarea {
+	position: relative;
+	left: 50%;
+	transform: translate(-50%, 0);
+	height: 200px;
+	width: 78%;
+	resize: none;
+	background-image: url('../image/input_hanji.jpg');
+	opacity: 0.9;
+	box-shadow: 0 4px 10px #A4AAA7;
+	border: none;
+	font-size: 20px;
+	line-height: 25px;
+	text-align: center;
+	font-weight: bold;
+	padding: 25px;
+	transition: 0.4s;
+	transition-timing-function: cubic-bezier(0.45,-1.24, 0.55, 2.22);
+}
+.H_main_textarea:focus {
+	box-shadow: 0 4px 10px #616264;
+	outline: none;
+}
+.H_main_textarea_fixed {
+	position: absolute;
+	top: 50%;
+	right: 20px;
+	transform: translate(0, -67%);
+	width: 15px;
+	height: 140px;
+	box-shadow: 0 0 10px #A4AAA7;
+}
+.H_first_step_next {
+	position: relative;
+	left: 0;
+	margin: auto;
+	width: 50px;
+	height: 50px;
+	background-color: rgba(255,255,255,0.2);
+	border-radius: 50%;
+	border:none;
+	box-shadow: 0 5px 10px #959EA2;
+	color: #959EA2;
+	font-size: 25px;
+	line-height: 55px;
+	text-align: center;
+	transition: 0.4s;
+	transition-timing-function: cubic-bezier(0.45,-1.24, 0.55, 2.22);
+} 
+.H_first_step_next:hover {
+	color: #1D1E23;
+	background-color: rgba(255,255,255,0.5);
+	box-shadow: 0 5px 10px #616264;
+	transform: scale(1.2, 1.2);
+}
+.H_loading_first_step_container {
+	position: absolute;
+	width: 360px;
+	height: 640px;
+	z-index: 3000;
+	background-color: rgba(0,0,0,0.8);
+}
+.H_loading_first_step_content {
+	position: relative;
+	top: 110px;
+}
+.H_loading_first_step_voca {
+	position: relative;
+	text-align: center;
+	color: white;
+	top: 110px;
+}
+.H_second_step_image_container {
+	position: relative;
+	background-color: white;
+	background-size: 200px 320px;
+	width: 200px;
+	height: 320px;
+	box-shadow: 0 5px 10px #A4AAA7;
+	left: 0;
+	margin: auto;
+	margin-top: 20px;
+	margin-bottom: 10px;
+}
+.H_second_step_image_content {
+	position: absolute;
+	left: 0;
+	right: 0;
+	margin-left: auto;
+	margin-right: auto;
+	top: 80px;
+	max-width: 120px;
+	max-height: 160px;
+	z-index: 500;
+}
+.H_edit_container {
+	position: relative;
+	width: 360px;
+	height: 50px;
+	border: none;
+	background-color: rgba(0,0,0,0);
+}
+.H_edit_button {
+	position: relative;
+	display: inline-block;
+	float: left;
+	margin-left: 1%;
+	margin-right: 1%;
+	width: 23%;
+	height: 50px;
+	border:none;
+	background-color: rgba(0,0,0,0);
+	text-align: center;
+	font-size: 20px;
+	line-height: 50px;
+	border-bottom: 3px solid #959EA2AA;
+	transition: 0.2s;
+	color: #959EA2;
+	cursor: pointer;
+	-webkit-tap-highlight-color:transparent;
+}
+.H_edit_button_selected:nth-child(1) {
+	color: #1D1E23;
+	border-bottom: 3px solid #E2A6B4;
+}
+.H_edit_button_selected:nth-child(2) {
+	color: #1D1E23;
+	border-bottom: 3px solid #F9D537;
+}
+.H_edit_button_selected:nth-child(3) {
+	color: #1D1E23;
+	border-bottom: 3px solid #6AB048;
+}
+.H_edit_button_selected:nth-child(4) {
+	color: #1D1E23;
+	border-bottom: 3px solid #00B5E3;
+}
+.H_fontedit_button {
+	position: relative;
+	display: inline-block;
+	border: none;
+	width: 32.3%;
+	height: 60px;
+	color: #1D1E23;
+	text-align: center;
+	line-height: 60px;
+	font-weight: bold;
+	transition: 0.4s;
+}
+.H_fontedit_button_selected {
+	background-color: rgba(0,0,0,0.1);
+}
+.H_fontcolor_button {
+	position: relative;
+	display: inline-block;
+	float: left;
+	background-color: white;
+	width: 23px;
+	height: 23px;
+	border: none;
+	margin: 5px;
+	cursor: pointer;
+	-webkit-tap-highlight-color:transparent;
+	transition: 0.4s;
+}
+.H_fontcolor_button_selected {
+	box-shadow: 0 0 10px white;
+}
+.H_second_step_next {
+	position: relative;
+	left: 0;
+	margin: auto;
+	margin-top: 10px;
+	width: 100px;
+	height: 35px;
+	background-color: rgba(255,255,255,0.2);
+	border-radius: 10px;
+	border:none;
+	box-shadow: 0 5px 10px #959EA2;
+	color: #959EA2;
+	font-size: 20px;
+	line-height: 35px;
+	text-align: center;
+	transition: 0.4s;
+	transition-timing-function: cubic-bezier(0.45,-1.24, 0.55, 2.22);
+} 
+.H_second_step_next:hover {
+	color: #1D1E23;
+	background-color: rgba(255,255,255,0.5);
+	box-shadow: 0 5px 10px #616264;
+	transform: scale(1.2, 1.2);
+}
+.H_second_step_prev {
+	position: absolute;
+	top: -40px;
+	left: 0;
+	right: 0;
+	margin-left: auto;
+	margin-right: auto;
+	width: 30px;
+	height: 30px;
+	background-color: rgba(255,255,255,0.0);
+	border-radius: 50%;
+	border:none;
+	color: #959EA2;
+	font-size: 20px;
+	line-height: 40px;
+	text-align: center;
+	transition: 0.4s;
+	transition-timing-function: cubic-bezier(0.45,-1.24, 0.55, 2.22);
+	z-index: 510;
+} 
+.H_second_step_prev:hover {
+	color: #1D1E23;
+	transform: scale(1.2, 1.2);
+}
+.H_third_step_save {
+	position: relative;
+	display: inline-block;
+	left: 30%;
+	width: 50px;
+	height: 50px;
+	background-color: rgba(255,255,255,0.2);
+	border-radius: 50%;
+	border:none;
+	box-shadow: 0 5px 10px #959EA2;
+	color: #959EA2;
+	font-size: 25px;
+	line-height: 55px;
+	text-align: center;
+	transition: 0.4s;
+	transition-timing-function: cubic-bezier(0.45,-1.24, 0.55, 2.22);
+} 
+.H_third_step_save:hover {
+	color: #1D1E23;
+	background-color: rgba(255,255,255,0.5);
+	box-shadow: 0 5px 10px #616264;
+	transform: scale(1.2, 1.2);
+}
+.H_third_step_select {
+	position: relative;
+	display: inline-block;
+	left: 40%;
+	width: 50px;
+	height: 50px;
+	background-color: rgba(255,255,255,0.2);
+	border-radius: 50%;
+	border:none;
+	box-shadow: 0 5px 10px #959EA2;
+	color: #959EA2;
+	font-size: 25px;
+	line-height: 55px;
+	text-align: center;
+	transition: 0.4s;
+	transition-timing-function: cubic-bezier(0.45,-1.24, 0.55, 2.22);
+} 
+.H_third_step_select:hover {
+	color: #1D1E23;
+	background-color: rgba(255,255,255,0.5);
+	box-shadow: 0 5px 10px #616264;
+	transform: scale(1.2, 1.2);
+}
+.H_background_form {
+	position: relative;
+	display: inline;
+	float: left;
+	width: 100px;
+	height: 178px;
+	background-size: 100px 178px;
+	border: none;
+	margin: 15px;
+	margin-right: 0;
+}
+.H_background_form:nth-child(odd){background-color: #5AC6D0}
+.H_background_form:nth-child(even){background-color: #9ED6C0}
+
+
+
+/*소개 페이지====================================================*/
+.H_info_body {
+	position: absolute;
+	background-image: url("../image/background_hanji.png");
+	width: 360px;
+	height: 640px;
+	z-index: 2000;
+	box-shadow: 0 0 20px #A4AAA7;
+}
+.H_info_header {
+	position: relative;
+	width: 100%;
+	height: 60px;
+	background: rgba(0,0,0,0);
+	z-index: 2500;
+}
+.H_main_button {
+	position: relative;
+	display: inline-block;
+	margin: 20px 5px 0 5px;
+	width: 25px;
+	height: 25px;
+	color: #1D1E23;
+	cursor: pointer;
+	outline: none;
+}
+.H_main_button {
+	-webkit-tap-highlight-color:transparent;
+}
+.H_main_button:active {
+	color: #616264;
+}
+.H_info_body_container {
+	position: relative;
+	width: 340px;
+	height: 435px;
+	left: 0;
+	margin: auto;
+	margin-top: 20px;
+	padding: 5px;
+	overflow-y: auto;
+}
+.H_info_body_content {
+	position: relative;
+	display: inline-block;
+	font-size: 16px;
+	line-height: 22px;
+	padding: 10px;
+}
+.H_icon_container1 {
+	position: relative;
+	text-align: center;
+	padding-bottom: 10px;
+}
+.H_icon_signature {
+	position: relative;
+	top: 10px;
+}
+.H_icon_feather {
+	font-size: 40px;
+}
+.H_info_body_image_content {
+	position: relative;
+	width: 340px;
+	height: 160px;
+}
+.H_info_body_image1 {
+	position: absolute;
+	top: 10px;
+	left: 30px;
+	width: 80px;
+	height: 130px;
+	transition: 0.4s;
+}
+.H_info_body_image1:hover {
+	transform: scale(1.2, 1.2);
+}
+.H_info_body_image2 {
+	position: absolute;
+	top: 10px;
+	left: 130px;
+	width: 80px;
+	height: 130px;
+	transition: 0.4s;
+}
+.H_info_body_image2:hover {
+	transform: scale(1.2, 1.2);
+}
+.H_info_body_image3 {
+	position: absolute;
+	top: 10px;
+	left: 230px;
+	width: 80px;
+	height: 130px;
+	transition: 0.4s;
+}
+.H_info_body_image3:hover {
+	transform: scale(1.2, 1.2);
+}

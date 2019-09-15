@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<title>한국말 AI 캘리그라피 - 하임</title>
+	<meta charset="utf-8">
+	<meta name="author" content="NB">
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+	<link rel="icon" type="image/png" href="../static/image/shortcut.png">
+	<!-- 아이콘 -->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+	<!-- Google Font -->
+	<link href="https://fonts.googleapis.com/css?family=East+Sea+Dokdo&display=swap&subset=korean" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Sunflower:300&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Belleza&display=swap" rel="stylesheet">
+	<!-- Animate CSS -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.css">
+	<!-- Custom CSS -->
+	<link rel="stylesheet" type="text/css" href="../static/css/main.css">
+</head>
+<body style="width: 360px; height: 640px;" onload="main_loading()" class="H_sunflower">
+	<!-- Info modal -->
+	<div id="H_info_body" class="H_info_body animated display_none">
+		<div class="H_info_header">
+			<div class="H_main_button" onclick="moveToMain()">
+				<i class="fas fa-arrow-alt-circle-left H_info_button_icon"></i>
+			</div>
+			<div class="H_chage_language H_sunflower">
+				<div class="H_language_kr H_language_selected" onclick="select_korea()">Kor</div>
+				<div class="H_language_eng" onclick="select_english()">Eng</div>
+			</div>
+		</div>
+		<div class="H_title H_title_kr H_dokdo noselect">하임을 소개합니다!</div>
+		<div class="H_title H_title_eng H_dokdo noselect display_none">Welcome to HAIM!</div>
+		<div class="H_subtitle H_subtitle_kr noselect H_dokdo">아름다운 한글을 더욱 아름답게!</div>
+		<div class="H_subtitle H_subtitle_eng noselect H_dokdo display_none">Beautiful Hangul more than ever</div>
+		<div class="H_info_body_container">
+			<div class="H_icon_container1">
+				<i class="fas fa-signature H_icon_signature"></i>
+				<i class="fas fa-feather H_icon_feather"></i>
+			</div>
+			<div class="H_info_body_content H_sunflower">
+				<i class="fab fa-gg"></i>&nbsp;
+				<div class="H_info_body_content_kr">
+					하임(HAIM - Hangul A.I Maker)은 한글을 예쁘게 써주는 <span style="color: #F15B5B">인공지능 서예가</span>입니다.
+				</div>
+				<div class="H_info_body_content_eng display_none">
+					HAIM(Hangul A.I Maker) is an <span style="color: #F15B5B">artificial calligrapher</span> who writes Hangul prettier.
+				</div>
+			</div>
+			<div class="H_info_body_content H_sunflower">
+				<i class="fab fa-gg"></i>&nbsp;
+				<div class="H_info_body_content_kr">
+					문장이나 단어를 텍스트로 입력하면, 인공지능이 즉시 <span style="color: #F7B938">캘리그라피</span>로 그려줍니다.
+				</div>
+				<div class="H_info_body_content_eng display_none">
+					When you enter a sentence or word as text, AI write Hangul in <span style="color: #F7B938">calligraphy</span> prettier than text.
+				</div>
+			</div>
+			<div class="H_info_body_content H_sunflower">
+				<i class="fab fa-gg"></i>&nbsp;
+				<div class="H_info_body_content_kr">
+					여러 <span style="color:#00B5E3">전문가들의 작품을 학습</span>하여, 사용자의 기호나 목적에 맞고 예쁜 자신만의 캘리그라피를 디자인해줍니다.
+
+				</div>
+				<div class="H_info_body_content_eng display_none">
+					From <span style="color:#00B5E3">learning the works of various calligraphy</span>, HAIM can design your own beautiful calligraphy that suits your preferences and purposes.
+				</div>
+			</div>
+			<div class="H_info_body_image_content">
+				<img src="../static/image/text_image1.jpg" class="H_info_body_image1">
+				<img src="../static/image/text_image2.png" class="H_info_body_image2">
+				<img src="../static/image/text_image3.jpg" class="H_info_body_image3">
+			</div>
+		</div>
+	</div>
+	<!-- Loading modal -->
+	<div id="H_main_loading" class="H_loading_container animated">
+		<div class="H_loading_brighting"></div>
+		<img src="../static/image/loading1.png" class="H_loading_content">
+		<div class="H_loading_voca H_sunflower">HAIM 준비 중..</div>
+	</div>
+	<div id="H_first_step_loading" class="H_loading_first_step_container animated display_none">
+		<svg viewBox="0 0 1000 1000" class="H_loading_first_step_content"></svg>
+		<div class="H_loading_first_step_voca H_loading_first_step_voca_kr">제작 중...</div>
+		<div class="H_loading_first_step_voca H_loading_first_step_voca_eng display_none">In creating...</div>
+	</div>
+
+	<!-- Header -->
+	<div class="H_header">
+		<div class="H_info_button" onclick="moveToInfo()">
+			<i class="fas fa-info-circle H_info_button_icon"></i>
+		</div>
+		<div class="H_chage_language H_sunflower">
+			<div class="H_language_kr H_language_selected" onclick="select_korea()">Kor</div>
+			<div class="H_language_eng" onclick="select_english()">Eng</div>
+		</div>
+	</div>
+	<div id="H_first_step" class="H_first_step animated">
+		<div class="H_title H_title_kr H_dokdo noselect">하 임</div>
+		<div class="H_title H_title_eng H_dokdo noselect display_none">H A I M</div>
+		<div class="H_subtitle H_subtitle_kr noselect H_dokdo">한글 인공지능 A.I 서예가</div>
+		<div class="H_subtitle H_subtitle_eng noselect H_dokdo display_none">Hangul A.I Maker</div>
+		<div class="H_main_textarea_container">
+			<textarea id="H_main_textarea" class="H_main_textarea H_sunflower" maxlength="100" placeholder="나만의 한글을 써주세요!"></textarea>
+			<img src="../static/image/munjin.png" class="H_main_textarea_fixed">
+		</div>
+		<div id="H_first_step_next" class="H_first_step_next" onclick="moveToSecond()">
+			<i class="fas fa-paint-brush"></i>
+		</div>
+	</div>
+	<div id="H_second_step" class="H_second_step animated display_none">
+		<!--되돌아가기 버튼-->
+		<div id="H_second_step_prev" class="H_second_step_prev" onclick="moveToFirstPrev()">
+			<i class="fas fa-sort-up"></i>
+		</div>
+		<div class="H_subtitle H_subtitle_kr H_dokdo noselect">사용자 편집</div>
+		<div class="H_subtitle H_subtitle_eng H_dokdo noselect display_none">Edit Calligraphy</div>
+		<div id="H_second_step_image_container", class="H_second_step_image_container">
+			<img src="../static/image/info_image1.png" class="H_second_step_image_content">
+		</div>
+		<!--선택버튼-->
+		<div class="H_edit_container">
+			<!--폰트설정-->
+			<div id="fontedit" class="H_edit_button H_edit_button_selected" onclick="select_parameter($(this))"><i class="fas fa-paint-brush"></i></div>
+			<!--글자간 간격설정-->
+			<div id="letterattach" class="H_edit_button" onclick="select_parameter($(this))"><i class="fas fa-arrows-alt-h"></i></div>
+			<!--선명도설정-->
+			<div id="definition" class="H_edit_button" onclick="select_parameter($(this))"><i class="fas fa-tint"></i></div>
+			<!--색상설정-->
+			<div id="fontcolor" class="H_edit_button" onclick="select_parameter($(this))"><i class="fas fa-palette"></i></div>
+		</div>
+		<!--파라미터 조절-->
+		<div id="H_fontedit_container" class="H_slider_container">
+			<div id="bell" class="H_sunflower H_fontedit_button H_fontedit_button_selected" onclick="select_font($(this))">동글동글</div>
+			<div id="wind" class="H_sunflower H_fontedit_button" onclick="select_font($(this))">휘날림</div>
+			<div id="bidan" class="H_sunflower H_fontedit_button" onclick="select_font($(this))">누에고치</div>
+		</div>
+		<div id="H_letterattach_container" class="H_slider_container display_none">
+			<div class="slider_info_kr slider_info">글자 사이 간격</div>
+			<div class="slider_info_eng slider_info display_none">Letter-Spacing</div>
+			<div class="slider_num H_dokdo">40</div>
+			<div class="slider_container">
+			  <input type="range" oninput="change_num($(this))" min="40" max="100" value="40">
+			</div>
+		</div>
+		<div id="H_definition_container" class="H_slider_container display_none">
+			<div class="slider_info_kr slider_info">선명도</div>
+			<div class="slider_info_eng slider_info display_none">Definition</div>
+			<div class="slider_num H_dokdo">30</div>
+			<div class="slider_container">
+			  <input type="range" oninput="change_num($(this))" min="0" max="100" value="30">
+			</div>
+		</div>
+		<div id="H_fontcolor_container" class="H_slider_container display_none">
+			<input class="jscolor" value="ECCEF5" style="position: relative; border: none; width: 100px; height: 58px; text-align: center; float: left; margin: 0 1.9px; transition: 0.4s;" onclick="select_color($(this))">
+			<div class="H_fontcolor_button" style="margin: 0 5px 5px 7px; background-color: #F78181;" onclick="select_color($(this))"></div>
+			<div class="H_fontcolor_button" style="margin-top: 0; background-color: #F79F81;" onclick="select_color($(this))"></div>
+			<div class="H_fontcolor_button" style="margin-top: 0; background-color: #F5D0A9" onclick="select_color($(this))"></div>
+			<div class="H_fontcolor_button" style="margin-top: 0; background-color: #F3E2A9" onclick="select_color($(this))"></div>
+			<div class="H_fontcolor_button" style="margin-top: 0; background-color: #E1F5A9" onclick="select_color($(this))"></div>
+			<div class="H_fontcolor_button" style="margin-top: 0; background-color: #A9F5D0" onclick="select_color($(this))"></div>
+			<div class="H_fontcolor_button" style="margin-top: 0; background-color: #A9E2F3" onclick="select_color($(this))"></div>
+			<div class="H_fontcolor_button" style="margin: 9px 5px 0 7px; background-color: #BCA9F5" onclick="select_color($(this))"></div>
+			<div class="H_fontcolor_button" style="margin: 9px 5px 0 5px; background-color: #D0A9F5" onclick="select_color($(this))"></div>
+			<div class="H_fontcolor_button" style="margin: 9px 5px 0 5px; background-color: #F5A9E1" onclick="select_color($(this))"></div>
+			<div class="H_fontcolor_button" style="margin: 9px 5px 0 5px; background-color: #F5A9D0" onclick="select_color($(this))"></div>
+			<div class="H_fontcolor_button" style="margin: 9px 5px 0 5px; background-color: #F6CED8" onclick="select_color($(this))"></div>
+			<div class="H_fontcolor_button" style="margin: 9px 5px 0 5px; background-color: #FFFFFF" onclick="select_color($(this))"></div>
+			<div class="H_fontcolor_button H_fontcolor_button_selected" style="margin: 9px 5px 0 5px; background-color: #000000" onclick="select_color($(this))"></div>
+		</div>
+		<!-- 선택 버튼 -->
+		<div id="H_second_step_next" class="H_second_step_next" onclick="moveToThird()">
+			<i class="fas fa-fill-drip"></i>
+		</div>
+	</div>
+	<div id="H_third_step" class="H_third_step animated display_none">
+		<!--되돌아가기 버튼-->
+		<div id="H_third_step_prev" class="H_second_step_prev" onclick="moveToSecondPrev()">
+			<i class="fas fa-sort-up"></i>
+		</div>
+		<div class="H_subtitle H_subtitle_kr H_dokdo noselect">배경 설정</div>
+		<div class="H_subtitle H_subtitle_eng H_dokdo noselect display_none">Select Background</div>
+		<div id="H_third_step_image_container" class="H_second_step_image_container" style="background-image: url('../static/image/bg_white.jpg')">
+			<img id="H_target_image" src="../static/image/info_image1.png" class="H_second_step_image_content">
+		</div>
+		<div id="H_save_image" class="H_third_step_save" style="margin-top: 20px;" onclick="imagesave()">
+			<i class="fas fa-arrow-alt-circle-down"></i>
+		</div>
+		<div id="H_select_background_button" class="H_third_step_select" style="margin-top: 20px;" onclick="moveToFourth()">
+			<i class="fas fa-th"></i>
+		</div>
+		<!--
+		<img id="H_bg_src" class="display_none" src="../static/image/bg_white.jpg" style="width: 360px; height: 640px;">
+		<img id="H_attach_src" style="position: relative; top: 500px">
+		<canvas id="H_save_image_canvas" style="position: relative; display: block; width: 360px; height: 640px;"></canvas>
+		-->
+	</div>
+	<div id="H_fourth_step" class="H_third_step animated display_none">
+		<div class="H_background_form" style="background-image: url('../static/image/bg_white.jpg')" onerror="unready_image($(this))" onclick="change_bg($(this))"></div>
+		<div class="H_background_form" style="background-image: url('../static/image/bg_black.jpg')" onerror="unready_image($(this))" onclick="change_bg($(this))"></div>
+		<div class="H_background_form" style="background-image: url('../static/image/bg0.jpg')" onerror="unready_image($(this))" onclick="change_bg($(this))"></div>
+		<div class="H_background_form" style="background-image: url('../static/image/bg1.jpg')" onerror="unready_image($(this))" onclick="change_bg($(this))"></div>
+		<div class="H_background_form" style="background-image: url('../static/image/bg2.png')" onerror="unready_image($(this))" onclick="change_bg($(this))"></div>
+		<div class="H_background_form" style="background-image: url('../static/image/bg3.jpg')" onerror="unready_image($(this))" onclick="change_bg($(this))"></div>
+		<div class="H_background_form" style="background-image: url('../static/image/bg4.jfif')" onerror="unready_image($(this))" onclick="change_bg($(this))"></div>
+		<div class="H_background_form" style="background-image: url('../static/image/bg5.jpg')" onerror="unready_image($(this))" onclick="change_bg($(this))"></div>
+		<div class="H_background_form" style="background-image: url('../static/image/bg6.jpg')" onerror="unready_image($(this))" onclick="change_bg($(this))"></div>
+		<div class="H_background_form" style="background-image: url('../static/image/bg7.jpg')" onerror="unready_image($(this))" onclick="change_bg($(this))"></div>
+		<div class="H_background_form" style="background-image: url('../static/image/bg8.jfif')" onerror="unready_image($(this))" onclick="change_bg($(this))"></div>
+		<div class="H_background_form" style="background-image: url('../static/image/bg9.jpg')" onerror="unready_image($(this))" onclick="change_bg($(this))"></div>
+		<div class="H_background_form" style="background-image: url('../static/image/bg10.jpg')" onerror="unready_image($(this))" onclick="change_bg($(this))"></div>
+		<div class="H_background_form" style="background-image: url('../static/image/bg11.jpg')" onerror="unready_image($(this))" onclick="change_bg($(this))"></div>
+		<div class="H_background_form" style="background-image: url('../static/image/bg12.jpg')" onerror="unready_image($(this))" onclick="change_bg($(this))"></div>
+	</div>
+</body>
+<!-- Jquery JS -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<!-- Loading JS -->
+<script src="../static/js/colorful_loading.js"></script>
+<!-- Color Picker JS -->
+<script src="../static/js/jscolor.js"></script>
+<!-- Custion JS -->
+<script src="../static/js/main.js"></script>
+</html>
