@@ -33,7 +33,7 @@ function select_korea() {
 
 		$('.H_info_body_content_eng').addClass("display_none");
 		$('.H_info_body_content_kr').removeClass("display_none");
-		$('#H_main_textarea').attr("placeholder", "나만의 한글을 써주세요!")
+		$('#H_main_textarea').attr("placeholder", "한글을 입력해주세요!")
 
 		$('.slider_info_eng').addClass("display_none");
 		$('.slider_info_kr').removeClass("display_none");
@@ -121,16 +121,16 @@ function moveToFirstPrev() {
 	}, 900);
 }
 function moveToThird() {
-	$('#H_first_step_loading').addClass('fadeIn');
-	$('#H_first_step_loading').removeClass('display_none');
+	$('#H_second_step_loading').addClass('fadeIn');
+	$('#H_second_step_loading').removeClass('display_none');
 
 	/*AJAX 연결함수에 붙힐 것*/
 	setTimeout(function() {
-		$('#H_first_step_loading').removeClass('fadeIn');
-		$('#H_first_step_loading').addClass('fadeOut');
+		$('#H_second_step_loading').removeClass('fadeIn');
+		$('#H_second_step_loading').addClass('fadeOut');
 		setTimeout(function() {
-			$('#H_first_step_loading').addClass('display_none');
-			$('#H_first_step_loading').removeClass('fadeOut');
+			$('#H_second_step_loading').addClass('display_none');
+			$('#H_second_step_loading').removeClass('fadeOut');
 			$('#H_second_step').addClass("fadeOutUp");
 			setTimeout(function() {
 				$('#H_second_step').removeClass("fadeOutUp");
