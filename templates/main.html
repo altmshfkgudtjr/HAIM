@@ -17,7 +17,7 @@
 	<!-- Custom CSS -->
 	<link rel="stylesheet" type="text/css" href="../static/css/main.css">
 </head>
-<body style="width: 360px; height: 640px;" onload="main_loading()" class="H_sunflower">
+<body style="width: 360px; height: 640px;" onload="main_loading(); calligraphy_preview();" class="H_sunflower">
 	<!-- Info modal -->
 	<div id="H_info_body" class="H_info_body animated display_none">
 		<div class="H_info_header">
@@ -81,11 +81,13 @@
 		<div class="H_loading_voca H_loading_first_step_voca_eng display_none H_sunflower">Starting for Haim...</div>
 	</div>
 	<div id="H_first_step_loading" class="H_loading_container animated display_none">
+		<div class="H_loading_brighting"></div>
 		<img src="../static/image/loading1.png" class="H_loading_content">
 		<div class="H_loading_voca H_loading_first_step_voca_kr H_dokdo">하임이 스케치를 하는 중...</div>
 		<div class="H_loading_voca H_loading_first_step_voca_eng display_none H_sunflower">In creating...</div>
 	</div>
 	<div id="H_second_step_loading" class="H_loading_container animated display_none">
+		<div class="H_loading_brighting"></div>
 		<img src="../static/image/loading1.png" class="H_loading_content">
 		<div class="H_loading_voca H_loading_first_step_voca_kr H_dokdo">하임이 붓질 하는 중...</div>
 		<div class="H_loading_voca H_loading_first_step_voca_eng display_none H_sunflower">In creating...</div>
@@ -128,7 +130,7 @@
 		<div class="H_subtitle H_subtitle_kr H_dokdo noselect">사용자 편집</div>
 		<div class="H_subtitle H_subtitle_eng H_dokdo noselect display_none">Edit Calligraphy</div>
 		<div id="H_second_step_image_container" class="H_second_step_image_container">
-			<img src="../static/image/info_image1.png" class="H_second_step_image_content">
+			<img id="H_target_preview" src="../static/image/info_image1.png" class="H_second_step_image_content">
 		</div>
 		<!--선택버튼-->
 		<div class="H_edit_container">
@@ -164,26 +166,11 @@
 			</div>
 		</div>
 		<div id="H_fontcolor_container" class="H_slider_container display_none">
-			<div class="H_fontcolor_button" style="margin: 0 5px 5px 7px; background-color: #FA5858;" onclick="select_color($(this))"></div>
-			<div class="H_fontcolor_button" style="margin: 0 5px 5px 7px; background-color: #F79F81;" onclick="select_color($(this))"></div>
-			<div class="H_fontcolor_button" style="margin: 0 5px 5px 7px; background-color: #F7BE81;" onclick="select_color($(this))"></div>
-			<div class="H_fontcolor_button" style="margin-top: 0; background-color: #F5DA81;" onclick="select_color($(this))"></div>
-			<div class="H_fontcolor_button" style="margin-top: 0; background-color: #E1F5A9;" onclick="select_color($(this))"></div>
-			<div class="H_fontcolor_button" style="margin-top: 0; background-color: #A9F5BC;" onclick="select_color($(this))"></div>
-			<div class="H_fontcolor_button" style="margin: 0 5px 5px 7px; background-color: #A9F5F2;" onclick="select_color($(this))"></div>
-			<div class="H_fontcolor_button" style="margin-top: 0; background-color: #81BEF7;" onclick="select_color($(this))"></div>
-			<div class="H_fontcolor_button" style="margin-top: 0; background-color: #A9A9F5" onclick="select_color($(this))"></div>
-			<div class="H_fontcolor_button" style="margin-top: 0; background-color: #BCA9F5" onclick="select_color($(this))"></div>
-			<div class="H_fontcolor_button" style="margin: 9px 5px 0 7px; background-color: #E3CEF6" onclick="select_color($(this))"></div>
-			<div class="H_fontcolor_button" style="margin: 9px 5px 0 7px; background-color: #F6CEF5" onclick="select_color($(this))"></div>
-			<div class="H_fontcolor_button" style="margin: 9px 5px 0 7px; background-color: #F6CEE3" onclick="select_color($(this))"></div>
-			<div class="H_fontcolor_button" style="margin: 9px 5px 0 7px; background-color: #F7F2E0" onclick="select_color($(this))"></div>
-			<div class="H_fontcolor_button" style="margin: 9px 5px 0 5px; background-color: #ECF8E0" onclick="select_color($(this))"></div>
-			<div class="H_fontcolor_button" style="margin: 9px 5px 0 5px; background-color: #E0ECF8" onclick="select_color($(this))"></div>
-			<div class="H_fontcolor_button" style="margin: 9px 5px 0 5px; background-color: #CECEF6" onclick="select_color($(this))"></div>
-			<div class="H_fontcolor_button" style="margin: 9px 5px 0 5px; background-color: #F8E0F1" onclick="select_color($(this))"></div>
-			<div class="H_fontcolor_button" style="margin: 9px 5px 0 5px; background-color: #FFFFFF" onclick="select_color($(this))"></div>
-			<div class="H_fontcolor_button H_fontcolor_button_selected" style="margin: 9px 5px 0 5px; background-color: #000000" onclick="select_color($(this))"></div>
+			<div class="H_fontcolor_button" style="background-color: #F6CED8;" onclick="select_color($(this))"></div>
+			<div class="H_fontcolor_button" style="background-color: #D8F6CE;" onclick="select_color($(this))"></div>
+			<div class="H_fontcolor_button" style="background-color: #D8CEF6;" onclick="select_color($(this))"></div>
+			<div class="H_fontcolor_button" style="background-color: #FFFFFF;" onclick="select_color($(this))"></div>
+			<div class="H_fontcolor_button" style="background-color: #000000" onclick="select_color($(this))"></div>
 		</div>
 		<!-- 선택 버튼 -->
 		<div id="H_second_step_next" class="H_second_step_next" onclick="moveToThird()">

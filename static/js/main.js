@@ -58,7 +58,7 @@ function select_english() {
 
 		$('.H_info_body_content_kr').addClass("display_none");
 		$('.H_info_body_content_eng').removeClass("display_none");
-		$('#H_main_textarea').attr("placeholder", "Input Hangul for Calligraphy!")
+		$('#H_main_textarea').attr("placeholder", "Input Hangul Please!")
 
 		$('.slider_info_kr').addClass("display_none");
 		$('.slider_info_eng').removeClass("display_none");
@@ -240,7 +240,7 @@ function imagesave() {
 
 
 function calligraphy_preview() {
-	let string = "아름다운 한글";
+	let string = "아름다운한글";
 	let font = $(".H_fontedit_button_selected").attr("number");
 	let letter = $("#slider_letter_space").val();
 	let definition = $("#slider_definition").val();
@@ -262,11 +262,13 @@ function calligraphy_preview() {
 		definition = 1;
 	}
 	
-	if (color == "rgb(0, 0, 0)") {
+	if (color == "rgb(255, 255, 255)") {
 		color = 1;
 	} else {
 		color = 0;
 	}
 	let output = string+'_'+String(font)+String(letter)+String(definition)+String(color)+".png";
-	console.log(output);
+	let preview_src = "../static/result/"+string+"/"+output;
+	$("#H_target_preview").attr("src", preview_src);
+	$("#H_target_image").attr("src", preview_src);
 }

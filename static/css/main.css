@@ -429,14 +429,16 @@ input[type="range"]:focus::-ms-fill-upper {
 }
 .H_second_step_image_content {
 	position: absolute;
-	left: 0;
+	left: 65px;
 	right: 0;
 	margin-left: auto;
 	margin-right: auto;
-	top: 80px;
+	top: 130px;
 	max-width: 120px;
 	max-height: 160px;
+	transform: scale(1.8,1.8);
 	z-index: 500;
+	clip: rect(0 90px 800px 0);
 }
 .H_edit_container {
 	position: relative;
@@ -500,10 +502,10 @@ input[type="range"]:focus::-ms-fill-upper {
 	display: inline-block;
 	float: left;
 	background-color: white;
-	width: 23px;
-	height: 23px;
+	width: 56px;
+	height: 56px;
 	border: none;
-	margin: 5px;
+	margin: 1px 5px 0 7px;
 	cursor: pointer;
 	-webkit-tap-highlight-color:transparent;
 	transition: 0.4s;
