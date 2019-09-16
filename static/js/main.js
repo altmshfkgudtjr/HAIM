@@ -269,6 +269,22 @@ function calligraphy_preview() {
 	}
 	let output = string+'_'+String(font)+String(letter)+String(definition)+String(color)+".png";
 	let preview_src = "../static/result/"+string+"/"+output;
-	$("#H_target_preview").attr("src", preview_src);
-	$("#H_target_image").attr("src", preview_src);
+	$("#H_target_preview").addClass("fadeOut");
+	setTimeout(function() {
+		$("#H_target_preview").attr("src", preview_src);
+		$("#H_target_preview").addClass("fadeIn");
+		$("#H_target_preview").removeClass("fadeOut");
+		setTimeout(function() {
+			$("#H_target_preview").removeClass("fadeIn");
+		}, 200);
+	}, 200);
+	$("#H_target_image").addClass("fadeOut");
+	setTimeout(function() {
+		$("#H_target_image").attr("src", preview_src);
+		$("#H_target_image").addClass("fadeIn");
+		$("#H_target_image").removeClass("fadeOut");
+		setTimeout(function() {
+			$("#H_target_image").removeClass("fadeIn");
+		}, 200);
+	}, 200);
 }
